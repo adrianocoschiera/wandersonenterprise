@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Wanderson Enterprise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Wanderson Enterprise — casa di EIDOS: I Custodi del DNA.">
+<link rel="stylesheet" href="./assets/modernist.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--color-bg:#060a16;--color-surface:#0d1428;--color-text:#eaf2ff;--color-accent:#35d0ff;--color-accent-600:#7fe3ff;--color-accent-700:#f5c451;--color-neutral-300:#1c2748}
+html{scroll-behavior:smooth}
+h1,h2,h3{font-family:'Chakra Petch',var(--font-heading)!important;text-transform:uppercase}
+@keyframes glowpulse{0%,100%{box-shadow:0 0 18px rgba(53,208,255,.45)}50%{box-shadow:0 0 34px rgba(53,208,255,.85)}}
+body{margin:0;background:radial-gradient(1200px 600px at 85% -10%,rgba(53,120,255,.18),transparent 60%),radial-gradient(900px 500px at -10% 40%,rgba(53,208,255,.08),transparent 60%),var(--color-bg);background-attachment:fixed;color:var(--color-text);font-family:var(--font-body)}
+a{color:var(--color-text);text-underline-offset:3px}
+a:hover{color:var(--color-accent-600)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+img{display:block;max-width:100%}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(6,10,22,0.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(90,200,255,0.22)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:stretch;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <a href="#home" style="display:flex;align-items:center;gap:12px;padding:18px 0;text-decoration:none;color:var(--color-text)">
+      <span style="width:16px;height:16px;background:#35d0ff;transform:rotate(45deg);box-shadow:0 0 14px #35d0ff"></span>
+      <span style="font-weight:800;font-size:17px;letter-spacing:0.04em;text-transform:uppercase">Wanderson Enterprise</span>
+    </a>
+    <nav style="display:flex;flex-wrap:wrap;align-items:stretch">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+        <a href="{{ n.href }}" style="{{ n.style }}" style-hover="color:var(--color-accent-600)">{{ n.label }}</a>
+      </sc-for>
+    </nav>
+  </div>
+</header>
+
+<main style="flex:1">
+
+<!-- HOME -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;min-height:min(92vh,900px);display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid rgba(90,200,255,0.22)">
+    <img src="./assets/wbc-tower.png" alt="" style="position:absolute;top:0;right:0;width:min(100%,900px);height:100%;object-fit:cover;object-position:center 30%">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,#060a16 3%,rgba(6,10,22,.55) 40%,rgba(6,10,22,0) 75%),linear-gradient(90deg,#060a16 30%,rgba(6,10,22,.6) 55%,rgba(6,10,22,0) 85%),radial-gradient(600px 500px at 75% 45%,rgba(53,208,255,.22),transparent 70%)"></div>
+    <div style="position:relative;width:100%;max-width:1280px;margin:0 auto;padding:120px 24px 72px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#f5c451"><span style="width:28px;height:2px;background:#f5c451;box-shadow:0 0 10px #f5c451"></span>La saga — nuovo capitolo</div>
+      <h1 style="margin:0;display:flex;flex-direction:column;gap:6px;line-height:0.9;letter-spacing:-0.01em">
+        <span style="font-size:clamp(22px,2.4vw,32px);color:#eaf2ff">I Custodi del DNA</span>
+        <span style="font-size:clamp(72px,11vw,160px);color:#bff2ff;text-shadow:0 0 18px rgba(53,208,255,.9),0 0 48px rgba(53,208,255,.55),0 0 90px rgba(31,120,240,.5)">EIDOS</span>
+      </h1>
+      <p style="font-size:clamp(18px,1.6vw,21px);line-height:1.55;margin:0;max-width:52ch;color:#d6e6ff;text-wrap:pretty">Sei un Custode del DNA. Esci dalla Fondazione Grunert, ritrova gli altri Custodi e scopri la verità — vivendo il mondo come lo vivono loro.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#progetti" class="btn btn-primary" style="text-decoration:none;white-space:nowrap;height:auto;background:linear-gradient(180deg,#7fe3ff,#1fb6f0);color:#03101e;border:0;border-radius:4px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;animation:glowpulse 2.6s ease-in-out infinite">Scopri il gioco →</a>
+        <a href="#documentario" class="btn btn-secondary" style="text-decoration:none;white-space:nowrap;height:auto;background:rgba(6,10,22,.4);color:#eaf2ff;border:1px solid rgba(245,196,81,.8);border-radius:4px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase">Guarda il documentario</a>
+      </div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;margin-top:16px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9fb6d9">
+        <span>PC · Steam</span><span>Gratuito</span><span>Godot 4</span><span style="color:#35d0ff">4 capitoli giocabili</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(calc((100% - 6px)/4),min(calc((100% - 2px)/2),calc((880px - 100%)*999)),calc((480px - 100%)*999))),1fr))">
+      <sc-for list="{{ doors }}" as="d" hint-placeholder-count="4">
+        <a href="{{ d.href }}" style="padding:28px 24px 32px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;text-decoration:none;color:var(--color-text);border-right:1px solid rgba(90,200,255,0.22);margin-right:-1px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px" style-hover="background:linear-gradient(160deg,rgba(53,208,255,.22),rgba(10,40,110,.35));color:#fff;box-shadow:inset 0 0 0 1px #35d0ff,0 0 30px rgba(53,208,255,.35)">
+          <span style="font-size:13px;font-weight:600;letter-spacing:0.08em">{{ d.num }}</span>
+          <span style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-weight:800;font-size:30px;letter-spacing:-0.02em;line-height:1">{{ d.title }}</span>
+            <span style="font-size:15px;line-height:1.5">{{ d.desc }}</span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="background:#000;overflow:hidden;min-height:360px">
+        <img src="./assets/eidos-city.png" alt="EIDOS — I Custodi del DNA" style="{{ keyArtStyle }}">
+      </div>
+      <div style="padding:56px 24px;display:flex;flex-direction:column;gap:20px;justify-content:center;border-left:1px solid rgba(90,200,255,0.22)">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Progetto in evidenza</div>
+        <h2 style="font-weight:800;font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-0.03em;margin:0">I Custodi del DNA<br>Capitolo: EIDOS</h2>
+        <p style="font-size:17px;line-height:1.6;margin:0;max-width:48ch;text-wrap:pretty">Un videogioco 3D narrativo e accessibile che ti fa vivere la disabilità in prima persona. Sei un Custode del DNA: esci dalla Fondazione Grunert e ritrova gli altri.</p>
+        <div><a href="#progetti" class="btn btn-primary" style="text-decoration:none;white-space:nowrap;height:auto;background:linear-gradient(180deg,#7fe3ff,#1fb6f0);color:#03101e;border:0;border-radius:4px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;animation:glowpulse 2.6s ease-in-out infinite">Scopri il gioco →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:radial-gradient(800px 400px at 90% 0%,rgba(53,208,255,.55),transparent 60%),linear-gradient(120deg,#081a45,#0a3d8f 55%,#1287c9);color:#fff;border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:88px 24px">
+      <p style="font-weight:800;font-size:clamp(36px,5.4vw,80px);line-height:0.98;letter-spacing:-0.035em;margin:0;max-width:18ch;text-wrap:balance">Ogni filamento racconta una storia. Qualcuno deve ricordarla.</p>
+    </div>
+  </section>
+</sc-if>
+
+<!-- PROGETTI -->
+<sc-if value="{{ isProgetti }}" hint-placeholder-val="{{ false }}">
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:56px 24px 48px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Il gioco</div>
+        <h1 style="font-weight:800;font-size:clamp(48px,6.4vw,96px);line-height:0.92;letter-spacing:-0.04em;margin:0;text-wrap:balance">I Custodi del DNA</h1>
+        <p style="font-size:24px;font-weight:800;letter-spacing:-0.01em;margin:0">Capitolo: EIDOS — capire la disabilità giocando.</p>
+        <p style="font-size:17px;line-height:1.6;margin:0;max-width:50ch;text-wrap:pretty">Un videogioco 3D narrativo e accessibile che non racconta la disabilità: te la fa vivere in prima persona. Percepisci il mondo come lo percepisce il tuo personaggio.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <a href="#contatti" class="btn btn-primary" style="text-decoration:none;white-space:nowrap;height:auto;background:linear-gradient(180deg,#7fe3ff,#1fb6f0);color:#03101e;border:0;border-radius:4px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;animation:glowpulse 2.6s ease-in-out infinite">Presto su Steam →</a>
+          <a href="#documentario" class="btn btn-secondary" style="text-decoration:none;white-space:nowrap;height:auto;background:rgba(6,10,22,.4);color:#eaf2ff;border:1px solid rgba(245,196,81,.8);border-radius:4px;font-weight:800;letter-spacing:0.04em;text-transform:uppercase">Guarda il documentario</a>
+        </div>
+      </div>
+      <div style="border-left:1px solid rgba(90,200,255,0.22);display:flex;flex-direction:column">
+        <sc-for list="{{ facts }}" as="f" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:minmax(0,140px) minmax(0,1fr);gap:16px;padding:18px 24px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px">
+            <span style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase">{{ f.k }}</span>
+            <span style="font-size:16px;font-weight:600;line-height:1.45">{{ f.v }}</span>
+          </div>
+        </sc-for>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(90,200,255,0.22);margin-top:auto">
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:600"><span>Capitoli giocabili</span><span><span style="color:var(--color-accent-700);font-weight:800">4</span> / 30</span></div>
+          <div style="display:grid;grid-template-columns:repeat(30,minmax(0,1fr));gap:3px">
+            <sc-for list="{{ chapterCells }}" as="c" hint-placeholder-count="30">
+              <span style="{{ c.style }}"></span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22);background:#000">
+    <img src="./assets/eidos-logo.png" alt="EIDOS — I Custodi del DNA" style="width:100%;max-height:560px;object-fit:cover;margin:0 auto">
+  </section>
+
+  <section style="background:radial-gradient(800px 400px at 90% 0%,rgba(53,208,255,.55),transparent 60%),linear-gradient(120deg,#081a45,#0a3d8f 55%,#1287c9);color:#fff;border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:28px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase">Il principio guida</div>
+      <p style="font-weight:800;font-size:clamp(34px,5vw,72px);line-height:1;letter-spacing:-0.035em;margin:0;max-width:20ch;text-wrap:balance">Il problema non è il personaggio. È un mondo progettato male per lui.</p>
+      <p style="font-size:19px;line-height:1.55;margin:0;max-width:56ch;font-weight:600">Non “che tristezza avere una disabilità”, ma: è un altro modo di stare al mondo, con le sue fatiche e le sue ricchezze.</p>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:56px 24px;display:flex;flex-direction:column;gap:20px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Storia</div>
+        <h2 style="font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1.02;letter-spacing:-0.025em;margin:0">Esci dalla Fondazione Grunert. Ritrova gli altri Custodi.</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;max-width:54ch;text-wrap:pretty">Sei un Custode del DNA: un bambino con una sindrome genetica rara, trattenuto nella Fondazione Grunert. Guidato da NightGene e dagli altri Custodi, dovrai uscire, ritrovare i tuoi simili e scoprire la verità su ciò che è stato fatto — e su ciò che è davvero.</p>
+        <p style="font-size:17px;line-height:1.65;margin:0;max-width:54ch;text-wrap:pretty">Ogni Custode incarna una condizione diversa. Liberarli uno a uno significa attraversare modi diversi di stare al mondo: ogni Custode apre un nuovo capitolo e un nuovo punto di vista.</p>
+      </div>
+      <div style="border-left:1px solid rgba(90,200,255,0.22);background:#000;min-height:420px;overflow:hidden">
+        <img src="./assets/eidos-city.png" alt="La città di EIDOS" style="{{ keyArtStyle }}">
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:48px 24px 32px;display:flex;flex-direction:column;gap:12px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Modalità di gioco</div>
+      <h2 style="font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1.02;letter-spacing:-0.025em;margin:0;max-width:22ch">L'accessibilità è il cuore del progetto, non un accessorio.</h2>
+    </div>
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));border-top:1px solid rgba(90,200,255,0.22)">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="5">
+        <div style="padding:24px 24px 28px;display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(90,200,255,0.22);margin-right:-1px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px">
+          <span style="font-weight:800;font-size:22px;color:var(--color-accent)">{{ m.num }}</span>
+          <span style="font-weight:800;font-size:20px;letter-spacing:-0.01em">{{ m.title }}</span>
+          <span style="font-size:15px;line-height:1.55;text-wrap:pretty">{{ m.text }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))">
+      <div style="padding:48px 24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Meccaniche percettive</div>
+        <h2 style="font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1.02;letter-spacing:-0.025em;margin:0">Ogni Custode ha un filtro percettivo.</h2>
+        <p style="font-size:17px;line-height:1.6;margin:0;max-width:44ch;text-wrap:pretty">Effetti visivi, sonori e di controllo che cambiano come percepisci il mondo e come ci interagisci. Fanno sentire la fatica di ciò che per gli altri è automatico.</p>
+      </div>
+      <div style="grid-column:auto / span 1;border-left:1px solid rgba(90,200,255,0.22);display:flex;flex-direction:column;min-width:0">
+        <sc-for list="{{ mechanics }}" as="f" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:20px 24px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px">
+            <span style="font-weight:800;font-size:18px;color:var(--color-accent)">{{ f.num }}</span>
+            <span style="display:flex;flex-direction:column;gap:4px">
+              <span style="font-weight:800;font-size:18px">{{ f.title }}</span>
+              <span style="font-size:15px;line-height:1.55;text-wrap:pretty">{{ f.text }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))">
+      <div style="padding:48px 24px;display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Audio</div>
+        <h3 style="font-weight:800;font-size:28px;letter-spacing:-0.02em;margin:0">Il suono è una meccanica</h3>
+        <p style="font-size:16px;line-height:1.65;margin:0;text-wrap:pretty">Audio spaziale 3D per orientarsi, voce narrante per descrizioni e scelte, e un paesaggio sonoro che cambia con lo stato emotivo del personaggio: calmo, sovraccarico, in panico. Sottotitoli sempre presenti.</p>
+      </div>
+      <div style="padding:48px 24px;display:flex;flex-direction:column;gap:16px;border-left:1px solid rgba(90,200,255,0.22)">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Metodo</div>
+        <h3 style="font-weight:800;font-size:28px;letter-spacing:-0.02em;margin:0">Co-progettato con chi vive la condizione</h3>
+        <p style="font-size:16px;line-height:1.65;margin:0;text-wrap:pretty">Ogni meccanica è validata con l'associazione I Custodi del DNA, con le famiglie e con figure cliniche e pedagogiche, per rendere l'esperienza in modo autentico e rispettoso — mai caricaturale.</p>
+      </div>
+      <div style="padding:48px 24px;display:flex;flex-direction:column;gap:16px;border-left:1px solid rgba(90,200,255,0.22)">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Universo transmediale</div>
+        <h3 style="font-weight:800;font-size:28px;letter-spacing:-0.02em;margin:0">Gioco e fumetto</h3>
+        <p style="font-size:16px;line-height:1.65;margin:0;text-wrap:pretty">I Custodi del DNA è una saga che vive tra videogioco e fumetto; EIDOS è uno dei suoi capitoli. Ogni capitolo è legato a un Custode e a una sindrome o condizione.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
+      <figure style="margin:0;padding:24px;display:flex;flex-direction:column;gap:12px">
+        <img src="./assets/eidos-poster.png" alt="Poster EIDOS" style="{{ posterStyle }}">
+        <figcaption style="font-size:13px;font-weight:600">Poster — I Custodi del DNA</figcaption>
+      </figure>
+      <figure style="margin:0;padding:24px;display:flex;flex-direction:column;gap:12px;border-left:1px solid rgba(90,200,255,0.22)">
+        <img src="./assets/eidos-icona.jpg" alt="Icona EIDOS" style="{{ posterStyle }}">
+        <figcaption style="font-size:13px;font-weight:600">Icona del gioco</figcaption>
+      </figure>
+      <figure style="margin:0;padding:24px;display:flex;flex-direction:column;gap:12px;border-left:1px solid rgba(90,200,255,0.22)">
+        <img src="./assets/eidos-city.png" alt="Scena di EIDOS" style="{{ posterStyle }}">
+        <figcaption style="font-size:13px;font-weight:600">Scena dal gioco</figcaption>
+      </figure>
+    </div>
+  </section>
+</sc-if>
+
+<!-- ARCHIVIO -->
+<sc-if value="{{ isArchivio }}" hint-placeholder-val="{{ false }}">
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Archivio storico</div>
+        <h1 style="font-weight:800;font-size:clamp(44px,6vw,88px);line-height:0.95;letter-spacing:-0.035em;margin:0">Documenti declassificati</h1>
+      </div>
+      <p style="font-size:17px;line-height:1.6;margin:0;max-width:48ch;text-wrap:pretty">Fotografie recuperate dagli schedari della Wanderson. Alcune mostrano la storia ufficiale. Altre, quella che l'azienda ha provato a dimenticare.</p>
+    </div>
+  </section>
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))">
+      <sc-for list="{{ archive }}" as="a" hint-placeholder-count="8">
+        <figure style="margin:0;padding:24px;display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(90,200,255,0.22);margin-right:-1px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px">
+          <div style="aspect-ratio:3/2;overflow:hidden;background:var(--color-surface)">
+            <img src="{{ a.src }}" alt="{{ a.title }}" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.1)">
+          </div>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin:0">
+            <span style="font-weight:800">{{ a.title }}</span>
+            <span style="color:var(--color-accent-700);font-weight:600">{{ a.code }}</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<!-- DOCUMENTARIO -->
+<sc-if value="{{ isDocumentario }}" hint-placeholder-val="{{ false }}">
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Documentario</div>
+        <h1 style="font-weight:800;font-size:clamp(44px,6vw,88px);line-height:0.95;letter-spacing:-0.035em;margin:0;text-wrap:balance">Dietro le porte della Wanderson</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;max-width:52ch">
+        <p style="font-size:17px;line-height:1.6;margin:0;text-wrap:pretty">Come è nato EIDOS: dalla prima idea al mondo della torre WBC, fino ai personaggi e alle immagini dell'archivio.</p>
+        <p style="font-size:17px;line-height:1.6;margin:0;text-wrap:pretty">Il progetto raccontato dall'interno: scelte, dubbi e dietro le quinte.</p>
+      </div>
+    </div>
+  </section>
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap">
+      <div style="flex:2 1 560px;min-width:0;padding:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="aspect-ratio:16/9;width:100%;background:#000">
+          <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+            <iframe key="{{ videoKey }}" src="{{ videoSrc }}" title="Documentario Wanderson Enterprise" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width:100%;height:100%;border:0;display:block"></iframe>
+          </sc-if>
+          <sc-if value="{{ noVideo }}" hint-placeholder-val="{{ true }}">
+            <div style="width:100%;height:100%;position:relative;overflow:hidden">
+              <img src="./assets/hall.png" alt="" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.1);opacity:0.55">
+              <div style="position:absolute;left:24px;bottom:24px;display:flex;align-items:center;gap:14px;color:var(--color-bg)">
+                <span style="width:56px;height:56px;background:var(--color-accent);display:flex;align-items:center;justify-content:center;font-size:22px">▶</span>
+                <span style="font-weight:800;font-size:18px">Video in arrivo — inserisci l'ID YouTube nei Tweaks</span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="font-size:14px">Disponibile anche su <a href="#documentario" style="font-weight:600">YouTube</a></div>
+      </div>
+      <div style="flex:1 1 300px;border-left:1px solid rgba(90,200,255,0.22);margin-left:-1px;display:flex;flex-direction:column">
+        <div style="padding:24px 24px 16px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(90,200,255,0.22)">Capitoli</div>
+        <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="6">
+          <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">
+            <span style="font-weight:800;font-size:15px">{{ c.t }}</span>
+            <span style="font-size:15px;font-weight:600;line-height:1.4">{{ c.title }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px">
+      <h2 style="font-weight:800;font-size:32px;letter-spacing:-0.02em;margin:0">Fonti e riferimenti</h2>
+      <p style="font-size:15px;line-height:1.7;margin:0;max-width:70ch">Elenco delle fonti citate nel documentario, in ordine alfabetico: autore, anno, titolo e link.</p>
+    </div>
+  </section>
+</sc-if>
+
+<!-- TEAM -->
+<sc-if value="{{ isTeam }}" hint-placeholder-val="{{ false }}">
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;padding:56px 24px 40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">WBC — Consiglio di amministrazione</div>
+      <h1 style="font-weight:800;font-size:clamp(44px,6vw,88px);line-height:0.95;letter-spacing:-0.035em;margin:0">Chi decide dentro la torre</h1>
+    </div>
+  </section>
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22);background:var(--color-surface)">
+    <img src="./assets/consiglio.png" alt="Ritratti del consiglio Wanderson" style="width:100%;max-height:620px;object-fit:cover;filter:saturate(1.1)">
+  </section>
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))">
+      <sc-for list="{{ team }}" as="p" hint-placeholder-count="5">
+        <div style="padding:28px 24px 32px;display:flex;flex-direction:column;gap:10px;border-right:1px solid rgba(90,200,255,0.22);margin-right:-1px;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px">
+          <span style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">{{ p.role }}</span>
+          <span style="font-weight:800;font-size:24px;letter-spacing:-0.015em">{{ p.name }}</span>
+          <span style="font-size:15px;line-height:1.6;text-wrap:pretty">{{ p.bio }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<!-- CONTATTI -->
+<sc-if value="{{ isContatti }}" hint-placeholder-val="{{ false }}">
+  <section style="border-bottom:1px solid rgba(90,200,255,0.22)">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">
+      <div style="padding:72px 24px;display:flex;flex-direction:column;gap:28px;justify-content:space-between">
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700)">Contatti</div>
+        <h1 style="font-weight:800;font-size:clamp(44px,6vw,88px);line-height:0.95;letter-spacing:-0.035em;margin:0;text-wrap:balance">Hai trovato qualcosa nell'archivio?</h1>
+        <p style="font-size:18px;line-height:1.6;margin:0;max-width:44ch;text-wrap:pretty">Per stampa, collaborazioni o informazioni su EIDOS, scrivici. Rispondiamo a ogni messaggio.</p>
+        <div style="display:flex;flex-direction:column;border-top:1px solid rgba(90,200,255,0.22)">
+          <a href="mailto:info@wandersonenterprise.com" style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(90,200,255,0.22);text-decoration:none;font-weight:800;font-size:20px" style-hover="color:var(--color-accent-600)"><span>info@wandersonenterprise.com</span><span>→</span></a>
+          <a href="https://wandersonenterprise.com" style="display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(90,200,255,0.22);text-decoration:none;font-weight:800;font-size:20px" style-hover="color:var(--color-accent-600)"><span>wandersonenterprise.com</span><span>→</span></a>
+        </div>
+      </div>
+      <div style="border-left:1px solid rgba(90,200,255,0.22);min-height:520px;overflow:hidden;background:var(--color-surface)">
+        <img src="./assets/hall.png" alt="La hall della Wanderson" style="width:100%;height:100%;object-fit:cover;filter:saturate(1.1)">
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+</main>
+
+<footer>
+  <div style="max-width:1280px;margin:0 auto;padding:28px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:14px">
+    <span style="font-weight:800;letter-spacing:0.04em;text-transform:uppercase">© 2026 Wanderson Enterprise</span>
+    <span>EIDOS — I Custodi del DNA</span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;videoId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;colorKeyArt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;progetti&quot;,&quot;archivio&quot;,&quot;documentario&quot;,&quot;team&quot;,&quot;contatti&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home' };
+  pages = ['home', 'progetti', 'archivio', 'documentario', 'team', 'contatti'];
+  chapters = [
+    ['0:00', 'Introduzione e contesto'],
+    ['2:10', "L'idea: nasce EIDOS"],
+    ['5:45', 'Costruire il mondo della Wanderson'],
+    ['9:30', 'I personaggi prendono vita'],
+    ['14:05', "Dentro l'archivio: le immagini"],
+    ['18:40', 'Riflessioni e ringraziamenti']
+  ];
+  toSec = (t) => t.split(':').reduce((a, b) => a * 60 + Number(b), 0);
+  readHash = () => {
+    const h = (window.location.hash || '').replace('#', '');
+    const page = this.pages.includes(h) ? h : (h ? this.state.page : (this.props.startPage ?? 'home'));
+    if (page !== this.state.page) { this.setState({ page }); window.scrollTo(0, 0); }
+  };
+  componentDidMount() {
+    this.readHash();
+    window.addEventListener('hashchange', this.readHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.readHash); }
+  renderVals() {
+    const p = this.state.page;
+    const color = this.props.colorKeyArt ?? true;
+    const gray = color ? '' : 'filter:saturate(1.1);';
+    const labels = [['home', 'Home'], ['progetti', 'Il gioco'], ['archivio', 'Archivio'], ['documentario', 'Documentario'], ['team', 'WBC'], ['contatti', 'Contatti']];
+    const vid = (this.props.videoId ?? '').trim();
+    const start = this.state.start ?? 0;
+    return {
+      isHome: p === 'home', isProgetti: p === 'progetti', isArchivio: p === 'archivio', isDocumentario: p === 'documentario', isTeam: p === 'team', isContatti: p === 'contatti',
+      hasVideo: !!vid, noVideo: !vid,
+      videoSrc: vid ? 'https://www.youtube.com/embed/' + vid + '?rel=0&start=' + start + (this.state.autoplay ? '&autoplay=1' : '') : '',
+      videoKey: 'v' + start,
+      chapters: this.chapters.map(([t, title], i) => {
+        const s = this.toSec(t), active = s === start;
+        return {
+          t, title, num: String(i + 1).padStart(2, '0'),
+          style: 'display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:baseline;width:100%;padding:18px 24px;border:0;border-bottom:1px solid rgba(90,200,255,0.22);margin-bottom:-1px;text-align:left;font:inherit;cursor:pointer;background:' + (active ? 'var(--color-accent)' : 'transparent') + ';color:' + (active ? 'var(--color-bg)' : 'var(--color-text)'),
+          onClick: () => { this.setState({ start: s, autoplay: true }); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        };
+      }),
+      nav: labels.map(([id, label]) => ({
+        href: '#' + id, label,
+        style: 'display:flex;align-items:center;padding:0 16px;font-size:15px;font-weight:600;text-decoration:none;color:' + (p === id ? 'var(--color-accent)' : 'var(--color-text)') + ';box-shadow:' + (p === id ? 'inset 0 -3px 0 #35d0ff, 0 6px 18px -6px rgba(53,208,255,.8)' : 'none')
+      })),
+      keyArtStyle: 'width:100%;height:100%;object-fit:cover;' + gray,
+      posterStyle: 'width:100%;aspect-ratio:2/3;object-fit:cover;background:#000;' + gray,
+      doors: [
+        { num: '01', title: 'Il gioco', desc: 'I Custodi del DNA e il capitolo EIDOS.', href: '#progetti' },
+        { num: '02', title: 'Archivio', desc: 'Fotografie e fascicoli declassificati.', href: '#archivio' },
+        { num: '03', title: 'Documentario', desc: 'Il racconto di come è nato EIDOS.', href: '#documentario' },
+        { num: '04', title: 'WBC', desc: 'Il consiglio della Wanderson.', href: '#team' }
+      ],
+      facts: [
+        { k: 'Tipo', v: 'Videogioco 3D narrativo e accessibile' },
+        { k: 'Motore', v: 'Godot 4' },
+        { k: 'Piattaforma', v: 'PC (Steam), gratuito — in valutazione Meta Quest / VR' },
+        { k: 'Saga', v: 'I Custodi del DNA (gioco + fumetto) — EIDOS è un capitolo' },
+        { k: 'Stato', v: '4 capitoli giocabili, base tecnica stabile' }
+      ],
+      chapterCells: Array.from({ length: 30 }, (_, i) => ({ style: 'height:14px;background:' + (i < 4 ? '#35d0ff;box-shadow:0 0 10px rgba(53,208,255,.8)' : 'var(--color-neutral-300)') })),
+      modes: [
+        { num: '01', title: 'Standard', text: "L'esperienza classica, punto di partenza." },
+        { num: '02', title: 'Cognitiva / percettiva', text: 'Effetti percettivi che simulano la condizione del Custode.' },
+        { num: '03', title: 'Non vedente', text: 'Guidata da audio binaurale e voce narrante, con scelte navigabili a voce.' },
+        { num: '04', title: 'Realtà virtuale', text: 'Immersione in prima persona nel corpo del Custode.' },
+        { num: '05', title: 'Eye-tracking', text: 'Si gioca con lo sguardo, anche con mobilità ridotta.' }
+      ],
+      mechanics: [
+        { num: '01', title: 'Attenzione che scivola', text: 'Il focus viene trascinato verso le distrazioni: riportarlo al compito costa fatica.' },
+        { num: '02', title: 'Istruzioni che sfuggono', text: 'Una consegna in più passaggi sbiadisce dopo pochi secondi: la memoria di lavoro sotto sforzo.' },
+        { num: '03', title: 'Sovraccarico sensoriale', text: 'Troppi stimoli insieme: bisogna fermarsi e fare una cosa alla volta.' },
+        { num: '04', title: 'Pressione del tempo', text: 'Appena qualcuno mette fretta, tutto peggiora: vibrazione, confusione, errori.' },
+        { num: '05', title: 'Lo sguardo degli altri', text: 'Sospiri, sguardi, frasi impazienti: il giudizio del mondo mentre ci provi con tutte le forze.' },
+        { num: '06', title: 'I punti di forza', text: 'Quando il modo diverso di elaborare diventa una capacità, riesci dove altri non riuscirebbero.' }
+      ],
+      archive: [
+        { src: './assets/archivio-laboratorio.png', title: 'Il primo laboratorio', code: 'DOC-001' },
+        { src: './assets/archivio-riunione.png', title: 'Riunione di ricerca', code: 'DOC-002' },
+        { src: './assets/archivio-campus.png', title: 'Il campus WBC', code: 'DOC-003' },
+        { src: './assets/archivio-dossier.png', title: 'Dossier WAREX-60', code: 'DOC-004' },
+        { src: './assets/archivio-conferenza.png', title: 'La conferenza stampa', code: 'DOC-005' },
+        { src: './assets/archivio-inaugurazione.png', title: "L'inaugurazione", code: 'DOC-006' },
+        { src: './assets/archivio-ricercatore.png', title: 'Il ricercatore', code: 'DOC-007' },
+        { src: './assets/hall.png', title: 'La hall principale', code: 'DOC-008' }
+      ],
+      team: [
+        { name: 'Eric Wanderson', role: 'Presidente', bio: 'Fondatore e volto pubblico della WBC. Ha costruito la torre e il suo impero sul codice della vita.' },
+        { name: 'Victor Hale', role: 'Direttore scientifico', bio: 'Guida i laboratori della WBC. Firma ogni protocollo, legge ogni risultato.' },
+        { name: 'Margaret Lowell', role: 'Direttrice operativa', bio: 'Tiene in moto la macchina: sedi, personale e segreti da custodire.' },
+        { name: 'Helen Carter', role: 'Relazioni pubbliche', bio: 'Decide cosa il mondo deve sapere della Wanderson — e cosa no.' },
+        { name: 'Arthur Brenner', role: 'Consigliere legale', bio: 'Ogni contratto, ogni silenzio, ogni archivio chiuso passa dalla sua scrivania.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
